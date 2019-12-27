@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+#wrap{width:200px;
+margin:50px auto;}
+.title{width:75px;font-weight:normal;}
+ul{display:inline-block;vertical-align:middle;}
+li{list-style-type:none;float:left;margin-right:2px;}
+.star{display:block;width:19px;height:23px;background:url("star.png")no-repeat;cursor:pointer;}
+li .on{background-position:0 -28px;}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+ <b class="title">星级评分：</b>
+ <ul>
+    <li>
+       <span class="star"></span>
+    </li>
+    <li>
+       <span class="star"></span>
+    </li>
+    <li>
+       <span class="star"></span>
+    </li>
+    <li>
+       <span class="star"></span>
+    </li>
+    <li>
+       <span class="star"></span>
+    </li>
+</ul>
+</div>
+<script>
+  let aStar=document.getElementsByClassName("star"),
+         oUl=document.getElementsByTagName("ul")[0],
+		 length=aStar.length,
+		 score=-1;
+  for(let i=0;i<length;i++)
+  {
+	  aStar[i].onmouseenter=function()
+	  {fun(i);}
+		aStar[i].onclick=function()
+		{score=i;}
+		  oUl.onmouseleave=function()
+		  {fun(score);}		  
+  }
+  function fun(x)
+  {
+	for(let j=0;j<length;j++)
+	{aStar[j].className = j<=x? "star on":"star";}  
+  }
+  </script>
+</body>
+</html>
